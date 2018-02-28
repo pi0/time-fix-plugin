@@ -24,6 +24,7 @@ module.exports = class TimeFixPlugin {
     compiler.hooks.done.tap('time-fix-plugin', stats => {
       if (this.watching && this.offsetApplied) {
         stats.startTime -= this.watchOffset
+        this.offsetApplied = false
       }
     })
   }
